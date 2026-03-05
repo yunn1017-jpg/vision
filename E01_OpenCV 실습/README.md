@@ -38,6 +38,7 @@ Python과 OpenCV 라이브러리를 활용한 기초적인 이미지 처리 및 
     combined = np.hstack((img, gray_bgr))# 이미지 가로 연결
 
 
+<img width="2480" height="969" alt="image" src="https://github.com/user-attachments/assets/c8fa0545-2356-4abc-8617-7aad82b174c4" />
 
 
 ----------------------------------------
@@ -131,6 +132,8 @@ Python과 OpenCV 라이브러리를 활용한 기초적인 이미지 처리 및 
         if brush_size < 1: # 만약 붓 크기가 1 미만(0 이하)이 되면
             brush_size = 1 # 붓 크기를 최소 1로 제한함
 
+
+<img width="1418" height="963" alt="image" src="https://github.com/user-attachments/assets/8bb06a94-768a-414c-b83d-f83b8c0502f8" />
 
 
 ----------------------------------------
@@ -252,4 +255,9 @@ Python과 OpenCV 라이브러리를 활용한 기초적인 이미지 처리 및 
             cv.imwrite('saved_roi.jpg', roi_selected) # 해당 ROI를 'saved_roi.jpg'라는 파일명으로 저장함
 
             print("ROI 이미지가 'saved_roi.jpg'로 저장되었습니다.") # 터미널에 저장 완료 안내 메시지 출력
+
+
+<img width="1426" height="968" alt="image" src="https://github.com/user-attachments/assets/394618fd-6d0a-4d73-8fd3-3633739fe1e5" />
+
+
 
