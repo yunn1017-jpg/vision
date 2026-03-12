@@ -62,8 +62,13 @@ ret, K, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,
 print("Camera Matrix K:")  # 카메라 내부 행렬 출력 안내
 print(K)  # 3x3 카메라 내부 행렬 (초점거리, 주점 포함) 출력
 
-print("\nDistortion Coefficients:")  # 왜곡 계수 출력 안내
-print(dist)  # 렌즈 왜곡 계수 (k1, k2, p1, p2, k3) 출력
+print("\nDistortion Coefficients [k1, k2, p1, p2, k3]:")  # 왜곡 계수 출력 안내
+k1, k2, p1, p2, k3 = dist[0][:5]
+print(f"  k1 = {k1:.8f}  (방사 왜곡, Radial)")
+print(f"  k2 = {k2:.8f}  (방사 왜곡, Radial)")
+print(f"  p1 = {p1:.8f}  (접선 왜곡, Tangential)")
+print(f"  p2 = {p2:.8f}  (접선 왜곡, Tangential)")
+print(f"  k3 = {k3:.8f}  (방사 왜곡, Radial)")
 
 print(f"\nRe-projection Error (RMS): {ret:.4f}")  # 재투영 오차 출력 (낮을수록 정확)
 
@@ -189,7 +194,7 @@ cv2.destroyAllWindows()  # 모든 창 닫기
 
 **1) 회전 + 크기 조절 변환 행렬 생성**
 
-`cv2.getRotationMatrix2D()`로 이미지 중심을 기준으로 45° 회전과 0.7배 축소를 동시에 수행하는 2×3 아핀 변환 행렬을 생성한다. `cv2.warpAffine()`으로 이 행렬을 이미지에 적용한다.
+`cv2.getRotationMatrix2D()`로 이미지 중심을 기준으로 30° 회전과 0.8배 축소를 동시에 수행하는 2×3 아핀 변환 행렬을 생성한다. `cv2.warpAffine()`으로 이 행렬을 이미지에 적용한다.
 
 ```python
 center = (w // 2, h // 2)
@@ -199,7 +204,7 @@ rotated_scaled = cv2.warpAffine(img, M_rotate, (w, h))
 
 **2) 이동(Translation) 변환 행렬**
 
-2×3 이동 변환 행렬을 직접 구성하여 x축 50px, y축 30px만큼 이미지를 평행이동시킨다. 이전 단계의 회전+축소 결과에 이어서 적용한다.
+2×3 이동 변환 행렬을 직접 구성하여 x축 80px, y축 -400px만큼 이미지를 평행이동시킨다. 이전 단계의 회전+축소 결과에 이어서 적용한다.
 
 ```python
 M_translate = np.float32([[1, 0, tx],
