@@ -49,8 +49,13 @@ ret, K, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,
 print("Camera Matrix K:")  # 카메라 내부 행렬 출력 안내
 print(K)  # 3x3 카메라 내부 행렬 (초점거리, 주점 포함) 출력
 
-print("\nDistortion Coefficients:")  # 왜곡 계수 출력 안내
-print(dist)  # 렌즈 왜곡 계수 (k1, k2, p1, p2, k3) 출력
+print("\nDistortion Coefficients [k1, k2, p1, p2, k3]:")  # 왜곡 계수 출력 안내
+k1, k2, p1, p2, k3 = dist[0][:5]
+print(f"  k1 = {k1:.8f}  (방사 왜곡, Radial)")
+print(f"  k2 = {k2:.8f}  (방사 왜곡, Radial)")
+print(f"  p1 = {p1:.8f}  (접선 왜곡, Tangential)")
+print(f"  p2 = {p2:.8f}  (접선 왜곡, Tangential)")
+print(f"  k3 = {k3:.8f}  (방사 왜곡, Radial)")
 
 print(f"\nRe-projection Error (RMS): {ret:.4f}")  # 재투영 오차 출력 (낮을수록 정확)
 

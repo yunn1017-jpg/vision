@@ -119,8 +119,11 @@ ret, K, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_size,
 new_K, roi = cv2.getOptimalNewCameraMatrix(K, dist, (w, h), 1, (w, h))
 undistorted = cv2.undistort(sample_img, K, dist, None, new_K)
 ```
-
+최종 결과
 ![alt text](1.png)
+
+카메라내부파라미터행렬[3x3]와 왜곡계수[k1, k2, p1, p2, k3]
+![alt text](image.png)
 ---
 
 ## 과제 2. 기하학적 변환 (2.py)
@@ -397,3 +400,5 @@ for name, (x, y, w, h) in rois.items():
 ```
 
 ![alt text](3.png)
+
+![alt text](image-1.png)
