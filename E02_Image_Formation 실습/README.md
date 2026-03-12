@@ -204,7 +204,7 @@ rotated_scaled = cv2.warpAffine(img, M_rotate, (w, h))
 
 **2) 이동(Translation) 변환 행렬**
 
-2×3 이동 변환 행렬을 직접 구성하여 x축 80px, y축 -400px만큼 이미지를 평행이동시킨다. 이전 단계의 회전+축소 결과에 이어서 적용한다.
+2×3 이동 변환 행렬을 직접 구성하여 x축 80px, y축 -40px만큼 이미지를 평행이동시킨다. 이전 단계의 회전+축소 결과에 이어서 적용한다.
 
 ```python
 M_translate = np.float32([[1, 0, tx],
