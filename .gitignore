@@ -1,0 +1,11 @@
+# Python virtual environments
+.venv/
+venv/
+**/.venv/
+**/venv/
+.venv310/
+venv310/
+**/.venv310/
+**/venv310/
+과제.md
+.gitignore**/yolov3.weights
